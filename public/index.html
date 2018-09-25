@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="public/precheck_logo.png">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="public/style.css">
+    <title>PreCheck Scraping Agent</title>
+</head>
+
+<body>
+    <header>
+        <div class="row">
+            <div id="precheck-logo" class="col-3">
+
+            </div>
+            <div class="col-6 text-center">
+                <h1 class="mt-3">Welcome to PreCheck Scraping Agent!</h1>
+                <button id="instructions" class="btn btn-primary" data-toggle="modal" data-target="#help-modal">Instructions</button>
+            </div>
+            <div id="box" class="col-3">
+                <div id="angle"></div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div id="main-body">
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-3">
+                <h2>Actions</h2>
+                <hr>
+                <ul id="action-list">
+                    <li class="mb-3">
+                        <input id="goto" class="mt-1" placeholder="URL">
+                        <div class="mt-1">
+                            <button id="goto-btn" class="btn btn-primary">Goto</button>
+                            <button id="goto-btn-help" class="btn btn-info">Help</button>
+                        </div>
+                    </li>
+                    <li class="mb-3">
+                        <input id="insert-selector" class="mt-1" placeholder="selector">
+                        <input id="insert-text" class="mt-1" placeholder="text">
+                        <div class="mt-1">
+                            <button id="insert-selector-btn" class="btn btn-primary">Insert</button>
+                            <button id="insert-selector-btn-help" class="btn btn-info">Help</button>
+                        </div>
+                    </li>
+                    <li class="mb-3">
+                        <input id="type-selector" class="mt-1">
+                        <div class="mt-1">
+                            <button id="type-selector-btn" class="btn btn-primary">Type</button>
+                            <button id="type-selector-btn-help" class="btn btn-info">Help</button>
+                        </div>
+                    </li>
+                    <li class="mb-3">
+                        <input id="click-selector" class="mt-1">
+                        <div class="mt-1">
+                            <button id="click-selector-btn" class="btn btn-primary">Click</button>
+                            <button id="click-selector-btn-help" class="btn btn-info">Help</button>
+                        </div>
+                    </li>
+                    <li class="mb-3">
+                        <input id="check-selector" class="mt-1">
+                        <div class="mt-1">
+                            <button id="check-selector-btn" class="btn btn-primary">Check</button>
+                            <button id="check-selector-btn-help" class="btn btn-info">Help</button>
+                        </div>
+                    </li>
+                    <li class="mb-3">
+                        <input id="uncheck-selector" class="mt-1">
+                        <div class="mt-1">
+                            <button id="uncheck-selector-btn" class="btn btn-primary">Uncheck</button>
+                            <button id="uncheck-selector-btn-help" class="btn btn-info">Help</button>
+                        </div>
+                    </li>
+                    <li class="mb-3">
+                        <input id="select-selector" class="mt-1">
+                        <div class="mt-1">
+                            <button id="select-selector-btn" class="btn btn-primary">Select</button>
+                            <button id="select-selector-btn-help" class="btn btn-info">Help</button>
+                        </div>
+                    </li>
+                    <li class="mb-3">
+                        <input id="wait-selector" class="mt-1">
+                        <div class="mt-1">
+                            <button id="wait-selector-btn" class="btn btn-primary">Wait</button>
+                            <button id="wait-selector-btn-help" class="btn btn-info">Help</button>
+                        </div>
+                    </li>
+                    <li class="mb-3">
+                        <input id="capture-selector" class="mt-1">
+                        <div class="mt-1">
+                            <button id="capture-selector-btn" class="btn btn-primary">Capture Item</button>
+                            <button id="capture-selector-btn-help" class="btn btn-info">Help</button>
+                        </div>
+                    </li>
+                    <li class="mb-3">
+                        <input id="list-selector" class="mt-1">
+                        <div class="mt-1">
+                            <button id="list-selector-btn" class="btn btn-primary">Capture List</button>
+                            <button id="list-selector-btn-help" class="btn btn-info">Help</button>
+                        </div>
+                    </li>
+                    <li class="mb-3">
+                        <input id="table-selector" class="mt-1">
+                        <div class="mt-1">
+                            <button id="table-selector-btn" class="btn btn-primary">Capture Table</button>
+                            <button id="table-selector-btn-help" class="btn btn-info">Help</button>
+                        </div>
+                    </li>
+                    <li class="mb-3">
+                        <input id="screenshot" class="mt-1">
+                        <div class="mt-1">
+                            <button id="screenshot-btn" class="btn btn-primary">Screenshot</button>
+                            <button id="screenshot-selector-btn-help" class="btn btn-info">Help</button>
+                        </div>
+                    </li>
+                    <li class="mb-3">
+                        <button id="refresh" class="btn btn-primary">Refresh Page</button>
+                        <button id="refresh-btn-help" class="btn btn-info">Help</button>
+                    </li>
+                    <li class="mb-3">
+                        <div class="mt-1">
+                            <button id="inject-btn" class="btn btn-primary mt-2">Inject</button>
+                            <button id="inject-btn-help" class="btn btn-info mt-2">Help</button>
+                        </div>
+                        <textarea id="inject" class="mt-2"></textarea>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-7">
+                <form>
+                    <div class="form-group">
+                        <label for="startingURL">Enter Starting URL</label>
+                        <input id="startingURL" class="form-control" type="text" name="startingURL">
+                    </div>
+                    <button id="scrapeBtn" class="btn btn-primary">Go To Page</button>
+                </form>
+                <iframe></iframe>
+                <h2 class="text-center">Results</h2>
+                <hr>
+                <div id="returnedHTML"></div>
+            </div>
+            <div class="col-1"></div>
+        </div>
+    </div>
+
+    <!-- Begin Help Info Modal -->
+    <div id="help-modal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">General Instructions</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>This is a web scraper building application, designed to collect data from websites to facilitate
+                        automation of the investigation process. The URL input near the top of this page will accept
+                        the starting page for the agent. After entering the starting URL, clicking 'Go To Page' will
+                        populate the frame below with the target web page. The HTML structure can now be viewed by
+                        using the browser developer tools. The developer tools can be accessed by hitting <kbd>F12</kbd>.
+                        Google Chrome is the recommended browser for use with this application. Once developer tools
+                        are displayed, click on the "Elements" header at the top of the window. Now right-clicking on
+                        any element within the page shown in the frame, and
+                        subsequently selecting "Inspect" at the bottom of the list will cause the corresponding element
+                        to be highlighted in the developer tools window.
+                    </p>
+                    <p>The manner by which this application identifies HTML elements is through a combination of CSS
+                        selectors and jQuery selectors. For convenience, a list of these selectors will be displayed
+                        upon clicking 'Selectors'. In order to ensure consistent data scraping, an desired target
+                        element must either be consistent in its position in the HTML document, or have a unique
+                        selector value. This value can be typed or copy pasted from the developer tools window to
+                        populate the action with the corresponding element.</p>
+                    <p>The purpose of using these tools is to build an action list, which will be executed
+                        synchronously on the server at run time. The action list should follow the simulated user
+                        actions that are tested in the frame window.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="public/index.js"></script>
+</body>
+
+</html>
