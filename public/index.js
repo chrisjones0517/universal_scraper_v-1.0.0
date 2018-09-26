@@ -1,7 +1,5 @@
 $(document).ready(() => {
 
-    let nightmareArr = [];
-
     $('#scrapeBtn').on('click', (e) => {
         e.preventDefault();
         const URL = $('#startingURL').val().trim();
@@ -54,7 +52,7 @@ $(document).ready(() => {
     $('#insert-selector-btn').on('click', (e) => {
         const selector = $('#insert-selector').val().trim();
         const text = $('#insert-text').val().trim();
-        nightmareArr.push({ INSERT: [{ SELECTOR: selector }, { TEXT: text }]});
+        nightmareArr.push({ INSERT: [{ SELECTOR: selector }, { TEXT: text }] });
         $('#insert-selector').val('');
         $('#insert-text').val('');
         console.log(nightmareArr);
